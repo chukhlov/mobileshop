@@ -1,6 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import ShopList from '../screens/shopList';
 
@@ -17,15 +17,42 @@ const ShopStack = () => {
         name="ShopList"
         component={ShopList}
         options={{
-          tabBarLabel: '',
+          tabBarShowLabel: false,
           tabBarIcon: ({color, size}) => (
-            <Icon name="rocket" size={size} color={color} />
+            <Icon name="store" size={size} color={color} />
           ),
         }}
       />
-      <Stack.Screen name="Search" component={() => null} />
-      <Stack.Screen name="Favourite" component={() => null} />
-      <Stack.Screen name="Bucker" component={() => null} />
+      <Stack.Screen
+        name="Search"
+        component={() => null}
+        options={{
+          tabBarShowLabel: false,
+          tabBarIcon: ({color, size}) => (
+            <Icon name="search" size={size} color={color} />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Favourite"
+        component={() => null}
+        options={{
+          tabBarShowLabel: false,
+          tabBarIcon: ({color, size}) => (
+            <Icon name="heart" size={size} color={color} />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Busket"
+        component={() => null}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Icon name="shopping-basket" size={size} color={color} />
+          ),
+          tabBarShowLabel: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };
