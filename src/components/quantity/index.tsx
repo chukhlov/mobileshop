@@ -28,7 +28,7 @@ const Quantity: ForwardRefRenderFunction<any, IQuantityProps> = (
   const onChangeText = useCallback(
     (text: string) => {
       const value = Number(text) || 1;
-      const newAmount = Math.max(Math.min(value, 100), 1);
+      const newAmount = Math.max(value, 1);
 
       setAmount(prevState => {
         onQuantityChange?.(newAmount, Number(prevState || 0));
