@@ -1,13 +1,14 @@
 import {observable} from 'mobx';
+import {IAddItemToCartProps, IShopShortProps} from '../../interfaces/shops';
 
 type IStateProps = {
   loading: boolean;
-  items: number[];
+  items: Map<string, IShopShortProps & IAddItemToCartProps>;
 };
 
 const initialState: IStateProps = {
-  items: [],
+  items: new Map(),
   loading: false,
 };
 
-export default observable(initialState);
+export default observable.object(initialState);

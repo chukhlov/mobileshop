@@ -5,4 +5,13 @@ export type IShopShortProps = {
   image: string;
 };
 
+export type IShopProps = IShopShortProps & {
+  description: string;
+};
+
 export type IShopsListResponse = IShopShortProps[];
+
+export type IAddItemToCartProps = {
+  id: number | string;
+  quantity: number;
+};

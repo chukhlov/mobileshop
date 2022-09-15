@@ -18,8 +18,14 @@ const ShopItem: FC<IShopShortProps> = ({id, name, price, image}) => {
   }, [navigation, id, name]);
 
   const addtoCart = useCallback(() => {
-    addItemToBasket(id);
-  }, [id]);
+    addItemToBasket({
+      id,
+      quantity: 1,
+      image,
+      price,
+      name,
+    });
+  }, [id, image, name, price]);
 
   return (
     <TouchableOpacity

@@ -1,6 +1,6 @@
 import {AbortController} from 'native-abort-controller';
 import axios from './axios';
-import {IShopsListResponse} from '../interfaces/shops';
+import {IShopProps, IShopsListResponse} from '../interfaces/shops';
 
 export const shopsController = new AbortController();
 
@@ -14,7 +14,7 @@ export const getShopsList = (favorite?: boolean) => {
 };
 
 export const getShop = (id: number) => {
-  return axios.get(`/items/${id}/`, {
+  return axios.get<IShopProps>(`/items/${id}/`, {
     signal: shopsController.signal,
   });
 };

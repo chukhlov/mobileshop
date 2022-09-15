@@ -1,12 +1,8 @@
 import {AbortController} from 'native-abort-controller';
 import axios from './axios';
+import {IAddItemToCartProps} from '../interfaces/shops';
 
 export const cartController = new AbortController();
-
-type IAddItemToCartProps = {
-  id: number;
-  quantity: number;
-};
 
 export const getCartItems = () => {
   return axios.get('/cart', {
@@ -22,8 +18,10 @@ export const addItemToCart = (params: IAddItemToCartProps) => {
 };
 
 export const updateCart = (params: IAddItemToCartProps) => {
-  return axios.put('/cart', {
-    params,
+  return axios.put('/cart/' + params.id, {
+    params: {
+      quantity: params.quantity,
+    },
     signal: cartController.signal,
   });
 };
